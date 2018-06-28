@@ -1,0 +1,30 @@
+<form class="md-form"  style="width: 550px;  position: relative;" [formGroup]="make_Appointment" (ngSubmit)="valueSubmission(make_Appointment.value)">
+  <div class="col">
+    <div col-md-3>
+      <div class="md-form form-group">
+        <input mdbInputDirective formControlName="appointment_Date" type="date" class="form-control" id="appontment-Date">
+        <label class="active" for="appointment_Date">Date</label>
+        <div *ngIf="make_Appointment.controls['appointment_Date'].hasError('required') && make_Appointment.controls['appointment_Date'].touched" class="alert alert-danger">You must enter a Date.</div>
+      </div>
+    </div>
+    <div col-md-3>
+      <div class="md-form form-group">
+        <input mdbInputDirective formControlName="appointment_Doctor" type="text" class="form-control" id="appointment-Doctor">
+        <label  class="active" for="appointment-Doctor">Doctor</label>
+        <div *ngIf="make_Appointment.controls['appointment_Doctor'].hasError('required') && make_Appointment.controls['appointment_Doctor'].touched" class="alert alert-danger">You must enter a Name.</div>
+				<div *ngIf="make_Appointment.controls['appointment_Doctor'].hasError('pattern') && make_Appointment.controls['appointment_Doctor'].touched" class="alert alert-danger">Numbers are not allowed</div>
+      </div>
+    </div>
+    <div col-md-3>
+      <div class="md-form form-group">
+          <input mdbInputDirective formControlName="appointment_Disease" type="text" class="form-control" id="appointment-Disease">
+          <label class="active" for="appointment-Disease">Disease</label>
+          <div *ngIf="make_Appointment.controls['appointment_Disease'].hasError('required') && make_Appointment.controls['appointment_Disease'].touched" class="alert alert-danger">You must enter a Disease name.</div>
+					<div *ngIf="make_Appointment.controls['appointment_Disease'].hasError('pattern') && make_Appointment.controls['appointment_Disease'].touched" class="alert alert-danger">Numbers are not allowed</div>
+      </div>
+    </div>
+    <div col-md-3>
+      <button type="submit" class="btn btn-default waves-light z-depth-2 pull-right" [disabled]="!make_Appointment.valid" mdbWavesEffect href="#">Make Appointment</button>
+    </div>
+  </div>
+</form>

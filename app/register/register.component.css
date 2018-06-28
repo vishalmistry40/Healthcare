@@ -1,0 +1,15 @@
+.container{
+    width: 4000px;
+    height: 100px;
+    padding-top:20px;
+    justify-content: center;
+    align-items: center;
+}
+.nav-pills > li > a.active {
+    background-color: #37474F;
+}
+
+ input::-webkit-datetime-edit{ color: transparent; }
+
+/* Include this to make it visible when input is clicked */
+input:focus::-webkit-datetime-edit{ color: #000; }   

@@ -1,0 +1,118 @@
+<form class="md-form">
+    <!-- personal info starts -->
+    <fieldset>
+      <legend>Personal Info.</legend>
+      <div class="form-row">
+        <div class="col-md-3">
+                <input mdbInputDirective  formControlName="pa_Name"  type="text" class="form-control" id="patient_Name">
+                <label  class="active" for="patient_Name">Name</label>
+        </div>
+        <div class="col-md-3">
+                <input mdbInputDirective  formControlName="pa_Title" type="text" class="form-control" id="patient_Title">
+                <label class="active" for="patient_Title">Title</label>
+        </div>
+        <div class="col-md-3">
+                <input mdbInputDirective  formControlName="pa_Age" type="number" class="form-control" id="patient_Age">
+                <label class="active" for="patient_Age">Age</label>
+        </div>
+        <div class="col-md-3">
+                <input mdbInputDirective  formControlName="pa_DOB" type="date" class="form-control" id="patient_DOB">
+                <label class="active" for="patient_DOB">Date of Birth</label>
+        </div>
+      </div>
+    </fieldset>
+    <!-- personal info ends -->
+    <!-- Health stats starts -->
+    <fieldset>
+        <legend>Health Stats</legend>
+        <div class="form-row">
+          <div class="col-md-3">
+              <div class="md-form form-group dropdown">
+                  <input mdbInputDirective  formControlName="pa_Gen" type="text" class="form-control dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="patient_Gender">
+                  <label for="patient_Gender">Gender</label>
+              </div> 
+          </div>
+          <div class="col-md-3">
+              <div class="md-form form-group">
+                  <input mdbInputDirective  formControlName="pa_Height" type="number" class="form-control" id="patient_Height">
+                  <label for="patient_Height">Height</label>
+              </div> 
+          </div>
+          <div class="col-md-3">
+              <div class="md-form form-group">
+                  <input mdbInputDirective  formControlName="pa_Weight" type="number" class="form-control" id="patient_Weight">
+                  <label for="patient_Weight">Weight</label>
+              </div> 
+          </div>
+          <div class="col-md-3">
+              <div class="md-form form-group">
+                  <input mdbInputDirective  formControlName="pa_BloodGroup" type="text" class="form-control" id="patient_BG">
+                  <label for="patient_BG">Blood Group</label>
+              </div> 
+          </div>
+        </div>
+      </fieldset>
+      <!-- Health stats ends -->
+      <!-- Address starts -->
+      <fieldset>
+          <legend>Address</legend>
+          <div class="form-row">
+            <div class="col-md-3">
+                <div class="md-form form-group">
+                    <input mdbInputDirective  formControlName="pa_Street" type="text" class="form-control" id="patient_Street">
+                    <label for="patient_Street">Street</label>
+                </div> 
+            </div>
+            <div class="col-md-3">
+                <div class="md-form form-group">
+                    <input mdbInputDirective  formControlName="pa_State" type="text" class="form-control" id="patient_State">
+                    <label for="patient_State">State</label>
+                </div> 
+            </div>
+            <div class="col-md-3">
+                <div class="md-form form-group">
+                    <input mdbInputDirective  formControlName="pa_City" type="text" class="form-control" id="patient_City">
+                    <label for="patient_City">City</label>
+                </div> 
+            </div>
+            <div class="col-md-3">
+                <div class="md-form form-group">
+                    <input mdbInputDirective  formControlName="pa_Zipcode" type="number" class="form-control" id="patient_Zip">
+                    <label for="patient_Zip">Zipcode</label>
+                </div> 
+            </div>
+          </div>
+        </fieldset>
+        <!-- Address ends -->
+        <!-- Contact info starts -->
+        <fieldset>
+            <legend>Contact Info.</legend>
+            <div class="form-row">
+              <div class="col-md-3">
+                  <div class="md-form form-group">
+                      <input mdbInputDirective  formControlName="pa_Email" type="email" class="form-control" id="patient_Email">
+                      <label for="patient_Email">Email</label>
+                  </div> 
+              </div>
+              <div class="col-md-3">
+                  <div class="md-form form-group">
+                      <input mdbInputDirective  formControlName="pa_PWD" type="password" class="form-control" id="patient_PWD">
+                      <label for="patient_PWD">Password : </label>
+                  </div> 
+              </div>
+              <div class="col-md-3">
+                  <div class="md-form form-group">
+                      <input mdbInputDirective  formControlName="pa_Home_Number" type="number" class="form-control" id="patient_Home_Number">
+                      <label for="patient_Home_Number">Home Number</label>
+                  </div> 
+              </div>
+              <div class="col-md-3">
+                  <div class="md-form form-group">
+                      <input mdbInputDirective  formControlName="pa_Mobile_Number" type="number" class="form-control" id="patient_Mobile_Number">
+                      <label for="patient_Mobile_Number">Mobile Number</label>
+                  </div> 
+              </div>
+            </div>
+          </fieldset>
+          <!-- contact info ends -->
+  </form>

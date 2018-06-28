@@ -1,0 +1,368 @@
+<div class="container">
+	<!-- card 1 starts -->
+		<div class="card-header rounded white-text special-color-dark z-depth-3" style="text-align: center;">
+			<h3><strong>Registration</strong></h3>
+		</div>
+		<div class="card-body">
+				<ul class="nav nav-pills nav-fill">
+						<li class="nav-item">
+							<a class="nav-link active z-depth-2" id="patient-tab" data-toggle="pill" href="#patient_reg" aria-selected="true">Pateint</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link z-depth-2" id="doctor-tab" data-toggle="pill" href="#doctor_reg" aria-selected="false">Doctor</a>
+						</li>
+				</ul>
+				<div class="tab-content card" style="margin: 20px; padding: 20px;">
+						<div class="tab-pane fade show active" id="patient_reg">
+							<form class="md-form" [formGroup]="patient_Reg_Form" (ngSubmit)="valueSubmission(patient_Reg_Form.value)">
+								<!-- personal info starts -->
+								<fieldset>
+									<legend>Personal Info.</legend>
+									<div class="form-row">
+										<div class="col-md-3">
+														<input mdbInputDirective  formControlName="pa_Name"  type="text" class="form-control" id="patient_Name">
+														<label for="patient_Name">Name</label>
+														<div *ngIf="patient_Reg_Form.controls['pa_Name'].hasError('required') && patient_Reg_Form.controls['pa_Name'].touched" class="alert alert-danger">You must enter a Name.</div>
+														<div *ngIf="patient_Reg_Form.controls['pa_Name'].hasError('pattern') && patient_Reg_Form.controls['pa_Name'].touched" class="alert alert-danger">Numbers are not allowed</div>
+														<div *ngIf="patient_Reg_Form.controls['pa_Name'].hasError('minlength') && patient_Reg_Form.controls['pa_Name'].touched" class="alert alert-danger">Minimum Length must be there.</div>
+														<div *ngIf="patient_Reg_Form.controls['pa_Name'].hasError('maxlength') && patient_Reg_Form.controls['pa_Name'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+														
+										</div>
+										<div class="col-md-3">
+														<input mdbInputDirective  formControlName="pa_Title" type="text" class="form-control" id="patient_Title">
+														<label for="patient_Title">Title</label>
+														<div *ngIf="patient_Reg_Form.controls['pa_Title'].hasError('required') && patient_Reg_Form.controls['pa_Title'].touched" class="alert alert-danger">You must enter a Title.</div>
+														<div *ngIf="patient_Reg_Form.controls['pa_Title'].hasError('minlength') && patient_Reg_Form.controls['pa_Title'].touched" class="alert alert-danger">Minimum Length must be there.</div>
+														<div *ngIf="patient_Reg_Form.controls['pa_Title'].hasError('maxlength') && patient_Reg_Form.controls['pa_Title'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+										</div>
+										<div class="col-md-3">
+														<input mdbInputDirective  formControlName="pa_Age" type="number" class="form-control" id="patient_Age">
+														<label for="patient_Age">Age</label>
+														<div *ngIf="patient_Reg_Form.controls['pa_Age'].hasError('required') && patient_Reg_Form.controls['pa_Age'].touched" class="alert alert-danger">You must enter your age </div>
+														<div *ngIf="patient_Reg_Form.controls['pa_Age'].hasError('min') && patient_Reg_Form.controls['pa_Age'].touched" class="alert alert-danger">Minimum age is 15</div>
+														<div *ngIf="patient_Reg_Form.controls['pa_Age'].hasError('max') && patient_Reg_Form.controls['pa_Age'].touched" class="alert alert-danger">Maximum age exceeded.</div>
+										</div>
+										<div class="col-md-3">
+														<input mdbInputDirective  formControlName="pa_DOB" type="date" class="form-control" id="patient_DOB">
+														<label for="patient_DOB">Date of Birth</label>
+														<div *ngIf="patient_Reg_Form.controls['pa_DOB'].hasError('required') && patient_Reg_Form.controls['pa_DOB'].touched" class="alert alert-danger">You must enter your Date of Birth </div>
+										</div>
+									</div>
+								</fieldset>
+								<!-- personal info ends -->
+								<!-- Health stats starts -->
+								<fieldset>
+										<legend>Health Stats</legend>
+										<div class="form-row">
+											<div class="col-md-3">
+													<div class="md-form form-group dropdown">
+															<input mdbInputDirective  formControlName="pa_Gen" type="text" class="form-control dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="patient_Gender">
+															<label for="patient_Gender">Gender</label>
+															<div *ngIf="patient_Reg_Form.controls['pa_Gen'].hasError('required') && patient_Reg_Form.controls['pa_Gen'].touched" class="alert alert-danger">You must enter your Gender </div>
+															<div *ngIf="patient_Reg_Form.controls['pa_Gen'].hasError('pattern') && patient_Reg_Form.controls['pa_Gen'].touched" class="alert alert-danger">Numbers are not allowed</div>
+															<div class="dropdown-menu ">
+																	<a class="dropdown-item">Male</a>
+																	<a class="dropdown-item">Female</a>
+																	<a class="dropdown-item">Others</a>
+															</div>
+													</div> 
+											</div>
+											<div class="col-md-3">
+													<div class="md-form form-group">
+															<input mdbInputDirective  formControlName="pa_Height" type="number" class="form-control" id="patient_Height">
+															<label for="patient_Height">Height</label>
+															<div *ngIf="patient_Reg_Form.controls['pa_Height'].hasError('required') && patient_Reg_Form.controls['pa_Height'].touched" class="alert alert-danger">You must enter your Height </div>
+															<div *ngIf="patient_Reg_Form.controls['pa_Height'].hasError('pattern') && patient_Reg_Form.controls['pa_Height'].touched" class="alert alert-danger">Texts are not allowed</div>
+													</div> 
+											</div>
+											<div class="col-md-3">
+													<div class="md-form form-group">
+															<input mdbInputDirective  formControlName="pa_Weight" type="number" class="form-control" id="patient_Weight">
+															<label for="patient_Weight">Weight</label>
+															<div *ngIf="patient_Reg_Form.controls['pa_Weight'].hasError('required') && patient_Reg_Form.controls['pa_Weight'].touched" class="alert alert-danger">You must enter your weight </div>
+															<div *ngIf="patient_Reg_Form.controls['pa_Weight'].hasError('pattern') && patient_Reg_Form.controls['pa_Weight'].touched" class="alert alert-danger">Texts are not allowed</div>
+													</div> 
+											</div>
+											<div class="col-md-3">
+													<div class="md-form form-group">
+															<input mdbInputDirective  formControlName="pa_BloodGroup" type="text" class="form-control" id="patient_BG">
+															<label for="patient_BG">Blood Group</label>
+															<div *ngIf="patient_Reg_Form.controls['pa_BloodGroup'].hasError('required') && patient_Reg_Form.controls['pa_BloodGroup'].touched" class="alert alert-danger">You must enter your BloodGroup </div>
+															<div *ngIf="patient_Reg_Form.controls['pa_BloodGroup'].hasError('pattern') && patient_Reg_Form.controls['pa_BloodGroup'].touched" class="alert alert-danger">Numbers are not allowed</div>
+													</div> 
+											</div>
+										</div>
+									</fieldset>
+									<!-- Health stats ends -->
+									<!-- Address starts -->
+									<fieldset>
+											<legend>Address</legend>
+											<div class="form-row">
+												<div class="col-md-3">
+														<div class="md-form form-group">
+																<input mdbInputDirective  formControlName="pa_Street" type="text" class="form-control" id="patient_Street">
+																<label for="patient_Street">Street</label>
+																<div *ngIf="patient_Reg_Form.controls['pa_Street'].hasError('required') && patient_Reg_Form.controls['pa_Street'].touched" class="alert alert-danger">You must enter your Street </div>
+														</div> 
+												</div>
+												<div class="col-md-3">
+														<div class="md-form form-group">
+																<input mdbInputDirective  formControlName="pa_State" type="text" class="form-control" id="patient_State">
+																<label for="patient_State">State</label>
+																<div *ngIf="patient_Reg_Form.controls['pa_State'].hasError('required') && patient_Reg_Form.controls['pa_State'].touched" class="alert alert-danger">You must enter your State </div>
+																<div *ngIf="patient_Reg_Form.controls['pa_State'].hasError('pattern') && patient_Reg_Form.controls['pa_State'].touched" class="alert alert-danger">Numbers are not allowed</div>
+																<div *ngIf="patient_Reg_Form.controls['pa_State'].hasError('maxlength') && patient_Reg_Form.controls['pa_State'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+														</div> 
+												</div>
+												<div class="col-md-3">
+														<div class="md-form form-group">
+																<input mdbInputDirective  formControlName="pa_City" type="text" class="form-control" id="patient_City">
+																<label for="patient_City">City</label>
+																<div *ngIf="patient_Reg_Form.controls['pa_City'].hasError('required') && patient_Reg_Form.controls['pa_City'].touched" class="alert alert-danger">You must enter your City </div>
+																<div *ngIf="patient_Reg_Form.controls['pa_City'].hasError('pattern') && patient_Reg_Form.controls['pa_City'].touched" class="alert alert-danger">Numbers are not allowed</div>
+																<div *ngIf="patient_Reg_Form.controls['pa_City'].hasError('maxlength') && patient_Reg_Form.controls['pa_City'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+														</div> 
+												</div>
+												<div class="col-md-3">
+														<div class="md-form form-group">
+																<input mdbInputDirective  formControlName="pa_Zipcode" type="number" class="form-control" id="patient_Zip">
+																<label for="patient_Zip">Zipcode</label>
+																<div *ngIf="patient_Reg_Form.controls['pa_Zipcode'].hasError('required') && patient_Reg_Form.controls['pa_Zipcode'].touched" class="alert alert-danger">You must enter your Zipcode </div>
+																<div *ngIf="patient_Reg_Form.controls['pa_Zipcode'].hasError('pattern') && patient_Reg_Form.controls['pa_Zipcode'].touched" class="alert alert-danger">Numbers are not allowed</div>
+																<div *ngIf="patient_Reg_Form.controls['pa_Zipcode'].hasError('maxlength') && patient_Reg_Form.controls['pa_Zipcode'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+														</div> 
+												</div>
+											</div>
+										</fieldset>
+										<!-- Address ends -->
+										<!-- Contact info starts -->
+										<fieldset>
+												<legend>Contact Info.</legend>
+												<div class="form-row">
+													<div class="col-md-3">
+															<div class="md-form form-group">
+																	<input mdbInputDirective  formControlName="pa_Email" type="email" class="form-control" id="patient_Email">
+																	<label for="patient_Email">Email</label>
+																	<div *ngIf="patient_Reg_Form.controls['pa_Email'].hasError('required') && patient_Reg_Form.controls['pa_Email'].touched" class="alert alert-danger">You must enter your Email </div>
+																	<div *ngIf="patient_Reg_Form.controls['pa_Email'].hasError('pattern') && patient_Reg_Form.controls['pa_Email'].touched" class="alert alert-danger">This is not an Email address</div>
+															</div> 
+													</div>
+													<div class="col-md-3">
+															<div class="md-form form-group">
+																	<input mdbInputDirective  formControlName="pa_PWD" type="password" class="form-control" id="patient_PWD">
+																	<label for="patient_PWD">Password</label>
+																	<div *ngIf="patient_Reg_Form.controls['pa_PWD'].hasError('required') && patient_Reg_Form.controls['pa_PWD'].touched" class="alert alert-danger">You must enter your Password </div>
+															</div> 
+													</div>
+													<div class="col-md-3">
+															<div class="md-form form-group">
+																	<input mdbInputDirective  formControlName="pa_Home_Number" type="number" class="form-control" id="patient_Home_Number">
+																	<label for="patient_Home_Number">Home Number</label>
+																	<div *ngIf="patient_Reg_Form.controls['pa_Home_Number'].hasError('required') && patient_Reg_Form.controls['pa_Home_Number'].touched" class="alert alert-danger">You must enter your Home Contact Number </div>
+																	<div *ngIf="patient_Reg_Form.controls['pa_Home_Number'].hasError('pattern') && patient_Reg_Form.controls['pa_Home_Number'].touched" class="alert alert-danger">This is not a number</div>
+															</div> 
+													</div>
+													<div class="col-md-3">
+															<div class="md-form form-group">
+																	<input mdbInputDirective  formControlName="pa_Mobile_Number" type="number" class="form-control" id="patient_Mobile_Number">
+																	<label for="patient_Mobile_Number">Mobile Number</label>
+																	<div *ngIf="patient_Reg_Form.controls['pa_Mobile_Number'].hasError('required') && patient_Reg_Form.controls['pa_Mobile_Number'].touched" class="alert alert-danger">You must enter your Mobile Contact Number </div>
+																	<div *ngIf="patient_Reg_Form.controls['pa_Mobile_Number'].hasError('pattern') && patient_Reg_Form.controls['pa_Mobile_Number'].touched" class="alert alert-danger">This is not a Number</div>
+															</div> 
+													</div>
+												</div>
+											</fieldset>
+											<!-- contact info ends -->
+											<hr>
+										<div class="text-center">
+										<button type="submit" class="btn btn-default waves-light z-depth-2" mdbWavesEffect [disabled]="!patient_Reg_Form.valid">Submit</button>
+										<button type="reset" class="btn btn-default waves-light z-depth-2" mdbWavesEffect>Reset</button>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane fade justify-align-center animated bounceInRight" id="doctor_reg">
+								<form class="md-form" [formGroup]="doctor_Reg_Form" (ngSubmit)="valueSubmission(doctor_Reg_Form.value)">
+									<!-- Doctor's personal info starts -->
+										<fieldset>
+												<legend>Personal Info.</legend>
+												<div class="form-row">
+													<div class="col-md">
+															<div class="md-form form-group">
+																	<input mdbInputDirective  formControlName="doc_Name" type="text" class="form-control" id="doctor_Name">
+																	<label for="doctor_Name">Name</label>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Name'].hasError('required') && doctor_Reg_Form.controls['doc_Name'].touched" class="alert alert-danger">You must enter a Name.</div>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Name'].hasError('minlength') && doctor_Reg_Form.controls['doc_Name'].touched" class="alert alert-danger">Minimum Length must be there.</div>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Name'].hasError('maxlength') && doctor_Reg_Form.controls['doc_Name'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+															</div> 
+													</div>
+													<div class="col-md">
+															<div class="md-form form-group">
+																	<input mdbInputDirective  formControlName="doc_Title" type="text" class="form-control" id="doctor_Title">
+																	<label for="doctor_Title">Title</label>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Title'].hasError('required') && doctor_Reg_Form.controls['doc_Title'].touched" class="alert alert-danger">You must enter a Title.</div>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Title'].hasError('minlength') && doctor_Reg_Form.controls['doc_Title'].touched" class="alert alert-danger">Minimum Length must be there.</div>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Title'].hasError('maxlength') && doctor_Reg_Form.controls['doc_Title'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+															</div> 
+													</div>
+													<div class="col-md">
+															<div class="md-form form-group dropdown">
+																	<input mdbInputDirective  formControlName="doc_Gen" type="text" class="form-control dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="doctor_Gender">
+																	<label for="doctor_Gender">Gender</label>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Gen'].hasError('required') && doctor_Reg_Form.controls['doc_Gen'].touched" class="alert alert-danger">You must enter your Gender </div>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Gen'].hasError('pattern') && doctor_Reg_Form.controls['doc_Gen'].touched" class="alert alert-danger">Numbers are not allowed</div>
+																	<div class="dropdown-menu ">
+																			<a class="dropdown-item">Male</a>
+																			<a class="dropdown-item">Female</a>
+																			<a class="dropdown-item">Others</a>
+																	</div>
+															</div> 
+													</div>
+													<div class="col-md">
+															<div class="md-form form-group">
+																	<input mdbInputDirective  formControlName="doc_Age" type="number" class="form-control" id="doctor_Age">
+																	<label for="doctor_Age">Age</label>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Age'].hasError('required') && doctor_Reg_Form.controls['doc_Age'].touched" class="alert alert-danger">You must enter your age </div>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Age'].hasError('min') && doctor_Reg_Form.controls['doc_Age'].touched" class="alert alert-danger">Minimum age is 15</div>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_Age'].hasError('max') && doctor_Reg_Form.controls['doc_Age'].touched" class="alert alert-danger">Maximum age exceeded.</div>
+															</div> 
+													</div>
+													<div class="col-md">
+															<div class="md-form form-group">
+																	<input mdbInputDirective  formControlName="doc_DOB" type="date" class="form-control" id="doctor_DOB">
+																	<label for="doctor_DOB">Date of Birth</label>
+																	<div *ngIf="doctor_Reg_Form.controls['doc_DOB'].hasError('required') && doctor_Reg_Form.controls['doc_DOB'].touched" class="alert alert-danger">You must enter your Date of Birth </div>
+															</div> 
+													</div>
+												</div>
+											</fieldset>
+											<!-- Doctor's personal info ends -->
+											<!-- Doctor's qualification starts -->
+											<fieldset>
+													<legend>Qualifications</legend>
+													<div class="form-row">
+														<div class="col-md">
+																<div class="md-form form-group">
+																		<input mdbInputDirective  formControlName="doc_DOA" type="date" class="form-control" id="doctor_DOA">
+																		<label for="doctor_DOA">Date of Appointed</label>
+																		<div *ngIf="doctor_Reg_Form.controls['doc_DOB'].hasError('required') && doctor_Reg_Form.controls['doc_DOB'].touched" class="alert alert-danger">You must enter your Date of Appointed </div>
+																</div> 
+														</div>
+														<div class="col-md">
+																<div class="md-form form-group">
+																		<input mdbInputDirective  formControlName="doc_Special" type="text" class="form-control" id="doctor_Special">
+																		<label for="doctor_Special">Specialization</label>
+																		<div *ngIf="doctor_Reg_Form.controls['doc_Special'].hasError('required') && doctor_Reg_Form.controls['doc_Special'].touched" class="alert alert-danger">You must enter your Specialization </div>
+																		<div *ngIf="doctor_Reg_Form.controls['doc_Special'].hasError('pattern') && doctor_Reg_Form.controls['doc_Special'].touched" class="alert alert-danger">Numbers are not allowed</div>
+																</div> 
+														</div>
+														<div class="col-md">
+																<div class="md-form form-group">
+																		<input mdbInputDirective  formControlName="doc_EXP" type="text" class="form-control" id="doctor_EXP">
+																		<label for="doctor_EXP">Experience</label>
+																		<div *ngIf="doctor_Reg_Form.controls['doc_EXP'].hasError('required') && doctor_Reg_Form.controls['doc_EXP'].touched" class="alert alert-danger">You must enter your Experiance </div>
+																		<div *ngIf="doctor_Reg_Form.controls['doc_EXP'].hasError('pattern') && doctor_Reg_Form.controls['doc_EXP'].touched" class="alert alert-danger">Texts are not allowed</div>
+																		<div *ngIf="doctor_Reg_Form.controls['doc_EXP'].hasError('max') && doctor_Reg_Form.controls['doc_EXP'].touched" class="alert alert-danger">Maximum Experience exceeded.</div>
+																</div> 
+														</div>
+														<div class="col-md">
+																<div class="md-form form-group">
+																		<input mdbInputDirective  formControlName="doc_EDU" type="number" class="form-control" id="doctor_EDU">
+																		<label for="doctor_EDU">Education</label>
+																		<div *ngIf="doctor_Reg_Form.controls['doc_EDU'].hasError('required') && doctor_Reg_Form.controls['doc_EDU'].touched" class="alert alert-danger">You must enter your Education </div>
+																		<div *ngIf="doctor_Reg_Form.controls['doc_EDU'].hasError('pattern') && doctor_Reg_Form.controls['doc_EDU'].touched" class="alert alert-danger">Numbers are not allowed</div>
+																</div> 
+														</div>
+													</div>
+												</fieldset>
+												<!-- Doctor's qualification ends -->
+												<!-- Doctor's address starts -->
+												<fieldset>
+														<legend>Address</legend>
+														<div class="form-row">
+															<div class="col-md-3">
+																	<div class="md-form form-group">
+																			<input mdbInputDirective  formControlName="doc_Street" type="text" class="form-control" id="doctor_Street">
+																			<label for="doctor_Street">Street</label>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_Street'].hasError('required') && doctor_Reg_Form.controls['doc_Street'].touched" class="alert alert-danger">You must enter your Street </div>
+																	</div> 
+															</div>
+															<div class="col-md-3">
+																	<div class="md-form form-group">
+																			<input mdbInputDirective  formControlName="doc_State" type="text" class="form-control" id="doctor_State">
+																			<label for="doctor_State">State</label>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_State'].hasError('required') && doctor_Reg_Form.controls['doc_State'].touched" class="alert alert-danger">You must enter your State </div>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_State'].hasError('pattern') && doctor_Reg_Form.controls['doc_State'].touched" class="alert alert-danger">Numbers are not allowed</div>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_State'].hasError('maxlength') && doctor_Reg_Form.controls['doc_State'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+																	</div> 
+															</div>
+															<div class="col-md-3">
+																	<div class="md-form form-group">
+																			<input mdbInputDirective  formControlName="doc_City" type="text" class="form-control" id="doctor_City">
+																			<label for="doctor_City">City</label>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_City'].hasError('required') && doctor_Reg_Form.controls['doc_City'].touched" class="alert alert-danger">You must enter your City </div>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_City'].hasError('pattern') && doctor_Reg_Form.controls['doc_City'].touched" class="alert alert-danger">Numbers are not allowed</div>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_City'].hasError('maxlength') && doctor_Reg_Form.controls['doc_City'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+																	</div> 
+															</div>
+															<div class="col-md-3">
+																	<div class="md-form form-group">
+																			<input mdbInputDirective  formControlName="doc_Zipcode" type="number" class="form-control" id="doctor_Zipcode">
+																			<label for="doctor_Zipcode">Zipcode</label>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_Zipcode'].hasError('required') && doctor_Reg_Form.controls['doc_Zipcode'].touched" class="alert alert-danger">You must enter your Zipcode </div>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_Zipcode'].hasError('pattern') && doctor_Reg_Form.controls['doc_Zipcode'].touched" class="alert alert-danger">Numbers are not allowed</div>
+																			<div *ngIf="doctor_Reg_Form.controls['doc_Zipcode'].hasError('maxlength') && doctor_Reg_Form.controls['doc_Zipcode'].touched" class="alert alert-danger">Maximum Length Exceeded.</div>
+																	</div> 
+															</div>
+														</div>
+													</fieldset>
+													<!-- Doctor's address ends -->
+													<!-- Doctor's contact info starts -->
+													<fieldset>
+															<legend>Contact Info.</legend>
+															<div class="form-row">
+																<div class="col-md-3">
+																		<div class="md-form form-group">
+																				<input mdbInputDirective  formControlName="doc_Email" type="email" class="form-control" id="doctor_Email">
+																				<label for="doctor_Email">Email</label>
+																				<div *ngIf="doctor_Reg_Form.controls['doc_Email'].hasError('required') && doctor_Reg_Form.controls['doc_Email'].touched" class="alert alert-danger">You must enter your Email </div>
+																				<div *ngIf="doctor_Reg_Form.controls['doc_Email'].hasError('pattern') && doctor_Reg_Form.controls['doc_Email'].touched" class="alert alert-danger">This is not an Email address</div>
+																		</div> 
+																</div>
+																<div class="col-md-3">
+																		<div class="md-form form-group">
+																				<input mdbInputDirective  formControlName="doc_PWD" type="password" class="form-control" id="doctor_PWD">
+																				<label for="doctor_PWD">Password</label>
+																				<div *ngIf="doctor_Reg_Form.controls['doc_PWD'].hasError('required') && doctor_Reg_Form.controls['doc_PWD'].touched" class="alert alert-danger">You must enter your Password </div>
+																		</div> 
+																</div>
+																<div class="col-md-3">
+																		<div class="md-form form-group">
+																				<input mdbInputDirective  formControlName="doc_Home_Number" type="number" class="form-control" id="doctor_Home_Number">
+																				<label for="doctor_Home_Number">Home Number</label>
+																				<div *ngIf="doctor_Reg_Form.controls['doc_Home_Number'].hasError('required') && doctor_Reg_Form.controls['doc_Home_Number'].touched" class="alert alert-danger">You must enter your Home Contact Number </div>
+																				<div *ngIf="doctor_Reg_Form.controls['doc_Home_Number'].hasError('pattern') && doctor_Reg_Form.controls['doc_Home_Number'].touched" class="alert alert-danger">This is not a number</div>
+																		</div> 
+																</div>
+																<div class="col-md-3">
+																		<div class="md-form form-group">
+																				<input mdbInputDirective  formControlName="doc_Mobile_Number" type="number" class="form-control" id="doctor_Mobile_Number">
+																				<label for="doctor_Mobile_Number">Mobile Number</label>
+																				<div *ngIf="doctor_Reg_Form.controls['doc_Mobile_Number'].hasError('required') && doctor_Reg_Form.controls['doc_Mobile_Number'].touched" class="alert alert-danger">You must enter your Mobile Contact Number </div>
+																				<div *ngIf="doctor_Reg_Form.controls['doc_Mobile_Number'].hasError('pattern') && doctor_Reg_Form.controls['doc_Mobile_Number'].touched" class="alert alert-danger">This is not a number</div>
+																		</div> 
+																</div>
+															</div>
+														</fieldset>
+														<!-- Doctor's contact info ends -->
+														<hr>
+														<!--  -->
+														<div class="text-center">
+															<button type="submit" class="btn btn-default waves-light z-depth-2" mdbWavesEffect [disabled]="!doctor_Reg_Form">Submit</button>
+															<button type="reset" class="btn btn-default waves-light z-depth-2" mdbWavesEffect>Reset</button>
+														</div>				
+									</form>
+							</div>
+				</div>	
+		</div>
+	<!-- card 1 ends -->
+</div>

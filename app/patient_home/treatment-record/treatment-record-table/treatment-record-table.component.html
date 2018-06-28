@@ -1,0 +1,18 @@
+<div  *ngIf=(viewchild)>
+  <table class="table table-hover">
+    <thead class="mdb-color darken-3">
+      <tr class="text-white">
+        <th>Date</th>
+        <th>Doctor</th>
+        <th>Disease</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of treatmentRecords">
+        <td>{{record.treatmentDate}}</td>
+        <td>{{record.treatmentDoctor}}</td>
+        <td>{{record.treatmentDisease}}</td>
+      </tr> 
+    </tbody>
+  </table>
+</div>
